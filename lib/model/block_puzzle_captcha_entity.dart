@@ -1,12 +1,17 @@
-import 'package:flutter_block_captcha/generated/json/base/json_convert_content.dart';
+class BlockPuzzleCaptchaEntity {
+  BlockPuzzleCaptchaEntity({
+    this.originalImageBase64 = '',
+    this.jigsawImageBase64 = '',
+    this.secretKey = '',
+    this.token = '',
+  });
+  final String? originalImageBase64;
+  final String? jigsawImageBase64;
+  final String? secretKey;
+  final String? token;
 
-class BlockPuzzleCaptchaEntity with JsonConvert<BlockPuzzleCaptchaEntity> {
-  late BlockPuzzleCaptcha getBlockPuzzleCaptcha;
-}
-
-class BlockPuzzleCaptcha with JsonConvert<BlockPuzzleCaptcha> {
-  String? originalImageBase64;
-  String? jigsawImageBase64;
-  String? secretKey;
-  String? token;
+  @override
+  String toString() {
+    return 'BlockPuzzleCaptchaEntity{originalImageBase64: $originalImageBase64, jigsawImageBase64: $jigsawImageBase64, secretKey: $secretKey, token: $token}';
+  }
 }

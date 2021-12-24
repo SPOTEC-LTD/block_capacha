@@ -1,14 +1,90 @@
 # flutter_block_captcha
+* flutter插件，用于人机验证交互
 
 A new Flutter package.
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# 使用方式:
+````Dart
+Future<T?> loadingBlockPuzzle<T>() async {
+    final titleTextStyle = TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      letterSpacing: -0.3,
+      color: ThemeOptions.of(ContextUtil.navigatorContext).textFFFFFF,
+    );
+    final updateTextStyle = TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      letterSpacing: -0.3,
+      color: ThemeOptions.of(ContextUtil.navigatorContext).backgroundFF6B00,
+    );
+    return showDialog<T>(
+      context: ContextUtil.navigatorContext,
+      barrierDismissible: false,
+      barrierColor: Colors.black.withOpacity(0.3),
+      builder: (BuildContext context) {
+        return BlockPuzzleCaptchaPage<T>(
+          loadCaptcha: _loadCaptcha,
+          checkCaptchaCallback: _checkCaptcha,
+          backGroundColor:
+              ThemeOptions.of(ContextUtil.navigatorContext).background303030,
+          sliderImageWidget: Image.asset(
+            ImageTool.findVariant(R.slider),
+            width: 63,
+            height: 32,
+            // color: Colors.blue,
+          ),
+          title: S.of(ContextUtil.navigatorContext).captchaTitle,
+          successMsg: S.of(ContextUtil.navigatorContext).captchaSuccessMsg,
+          titleTextStyle: titleTextStyle,
+          updateText: S.of(ContextUtil.navigatorContext).captchaUpdate,
+          updateTextStyle: updateTextStyle,
+          closeText: S.of(ContextUtil.navigatorContext).captchaClose,
+          closeTextStyle: updateTextStyle,
+          movedXBorderColor:
+              ThemeOptions.of(ContextUtil.navigatorContext).backgroundFFAF75,
+          defaultXBorderColor:
+              ThemeOptions.of(ContextUtil.navigatorContext).background4A4A4A,
+        );
+      },
+    );
+  }
+  
+  /// 对应参数说明
+  /// [loadCaptcha] 获取人机验证图片-接口操作
+    final LoadCaptchaCallback loadCaptcha;
+  
+    /// [checkCaptchaCallback] 校验回调-接口操作
+    final CheckCaptchaCallback checkCaptchaCallback;
+  
+    /// [titleTextStyle] 标题字体样式
+    final TextStyle? titleTextStyle;
+  
+    /// [title] 标题
+    final String title;
+  
+    /// [backGroundColor] 弹窗背景色
+    final Color? backGroundColor;
+  
+    /// [updateText] 刷新
+    final String updateText;
+    final TextStyle? updateTextStyle;
+  
+    /// [closeText] 关闭
+    final String closeText;
+    final TextStyle? closeTextStyle;
+  
+    /// [successMsg] 成功提示信息
+    final String successMsg;
+  
+    /// [defaultXBorderColor] 滑块左边颜色，已滑动区域边框颜色
+    final Color movedXBorderColor;
+  
+    /// [defaultXBorderColor] 滑块右边颜色，未滑动边框颜色
+    final Color? defaultXBorderColor;
+  
+    /// [sliderImageWidget] 滑块的图片
+    final Widget sliderImageWidget;
+````

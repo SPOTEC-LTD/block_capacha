@@ -51,40 +51,17 @@ Future<T?> loadingBlockPuzzle<T>() async {
       },
     );
   }
-  
-  /// 对应参数说明
-  /// [loadCaptcha] 获取人机验证图片-接口操作
-    final LoadCaptchaCallback loadCaptcha;
-  
-    /// [checkCaptchaCallback] 校验回调-接口操作
-    final CheckCaptchaCallback checkCaptchaCallback;
-  
-    /// [titleTextStyle] 标题字体样式
-    final TextStyle? titleTextStyle;
-  
-    /// [title] 标题
-    final String title;
-  
-    /// [backGroundColor] 弹窗背景色
-    final Color? backGroundColor;
-  
-    /// [updateText] 刷新
-    final String updateText;
-    final TextStyle? updateTextStyle;
-  
-    /// [closeText] 关闭
-    final String closeText;
-    final TextStyle? closeTextStyle;
-  
-    /// [successMsg] 成功提示信息
-    final String successMsg;
-  
-    /// [defaultXBorderColor] 滑块左边颜色，已滑动区域边框颜色
-    final Color movedXBorderColor;
-  
-    /// [defaultXBorderColor] 滑块右边颜色，未滑动边框颜色
-    final Color? defaultXBorderColor;
-  
-    /// [sliderImageWidget] 滑块的图片
-    final Widget sliderImageWidget;
 ````
+
+# 参数说明：
+* [loadCaptcha] 获取人机验证图片-接口操作
+* [checkCaptchaCallback] 校验回调-接口操作
+* [titleTextStyle] 标题字体样式
+* [title] 标题
+* [backGroundColor] 弹窗背景色
+* [updateText] 刷新
+* [closeText] 关闭
+* [successMsg] 成功提示信息
+* [defaultXBorderColor] 滑块左边颜色，已滑动区域边框颜色
+* [defaultXBorderColor] 滑块右边颜色，未滑动边框颜色
+* [sliderImageWidget] 滑块的图片widget
